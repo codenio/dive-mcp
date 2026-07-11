@@ -7,13 +7,17 @@ IMAGE="${DIVE_MCP_TEST_IMAGE:-dive-mcp-compat:ci}"
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 OUT="$(mktemp)"
-trap 'rm -f "$OUT"' EXIT
+ARCHIVE="$(mktemp)"
+trap 'rm -f "$OUT" "$ARCHIVE"' EXIT
 
 echo "Building test image ${IMAGE}..."
 docker build -t "$IMAGE" -f "${ROOT}/testdata/Dockerfile.ci" "${ROOT}/testdata"
 
-echo "Running dive against ${IMAGE}..."
-"$DIVE_BIN" "$IMAGE" --json "$OUT"
+echo "Saving image to docker-archive for dive..."
+docker save "$IMAGE" -o "$ARCHIVE"
+
+echo "Running dive against ${IMAGE} (docker-archive)..."
+"$DIVE_BIN" "$ARCHIVE" --source docker-archive --json "$OUT"
 
 echo "Verifying JSON parses with dive-mcp types..."
 cd "$ROOT"
