@@ -7,12 +7,12 @@
 [![Release](https://img.shields.io/github/v/release/codenio/dive-mcp)](https://github.com/codenio/dive-mcp/releases)
 [![Go Reference](https://pkg.go.dev/badge/github.com/codenio/dive-mcp/cmd/dive-mcp.svg)](https://pkg.go.dev/github.com/codenio/dive-mcp/cmd/dive-mcp)
 [![MCP](https://img.shields.io/badge/MCP-compatible-6366F1)](https://modelcontextprotocol.io)
-[![dive](https://img.shields.io/badge/dive-v0.10%2B-blue)](https://github.com/wagoodman/dive)
+[![dive](https://img.shields.io/badge/dive-v0.12%2B-blue)](https://github.com/wagoodman/dive)
 
 MCP server for [`dive`](https://github.com/wagoodman/dive) — inspect container image
 layers, find wasted space, and run CI-style efficiency checks from AI coding assistants.
 
-**dive compatibility:** [`dive`](https://github.com/wagoodman/dive) v0.10.0 – v0.13.x (CI-tested).
+**dive compatibility:** [`dive`](https://github.com/wagoodman/dive) v0.12.0 – v0.13.x (CI-tested).
 Uses your installed `dive` binary — not bundled. [Details →](docs/dive-compatibility.md)
 
 ## Quick start

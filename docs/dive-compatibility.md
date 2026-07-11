@@ -9,9 +9,9 @@ separately and point `dive-mcp` at it via `PATH` or `DIVE_MCP_DIVE_PATH`.
 | dive release | Status | Notes |
 |---|---|---|
 | `v0.13.x` | Supported (tested) | Current upstream; recommended |
-| `v0.12.x` | Supported (tested) | JSON shape unchanged for fields `dive-mcp` uses |
-| `v0.11.x` | Supported (tested) | |
-| `v0.10.x` | Supported (tested) | Oldest version in the CI matrix |
+| `v0.12.x` | Supported (tested) | Oldest version in the CI matrix |
+| `v0.11.x` | Best effort | Not exercised in CI |
+| `v0.10.x` | Best effort | Not exercised in CI |
 | `< v0.10.0` | Best effort | `--json` existed earlier but is not exercised in CI |
 
 ## Maintaining compatibility
