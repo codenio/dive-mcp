@@ -1,0 +1,67 @@
+name: Dive compatibility
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "internal/dive/**"
+      - "scripts/**"
+      - "testdata/**"
+      - ".github/workflows/dive-compat.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "internal/dive/**"
+      - "scripts/**"
+      - "testdata/**"
+      - ".github/workflows/dive-compat.yml"
+  schedule:
+    # Catch upstream dive releases even when dive-mcp code is unchanged.
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+    inputs:
+      dive_version:
+        description: "Single dive version to test (e.g. 0.13.1). Leave empty for the full matrix."
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    outputs:
+      versions: ${{ steps.set.outputs.versions }}
+    steps:
+      - id: set
+        run: |
+          if [ -n "${{ inputs.dive_version }}" ]; then
+            versions='["${{ inputs.dive_version }}"]'
+          else
+            versions='["0.10.0","0.11.0","0.12.0","0.13.1"]'
+          fi
+          echo "versions=${versions}" >> "$GITHUB_OUTPUT"
+
+  compat:
+    needs: setup
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        dive_version: ${{ fromJson(needs.setup.outputs.versions) }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+          cache-dependency-path: go.sum
+
+      - name: Install dive
+        run: ./scripts/install-dive.sh "${{ matrix.dive_version }}"
+
+      - name: Verify dive JSON compatibility
+        env:
+          DIVE_BIN: ${{ github.workspace }}/.dive-bin/dive
+        run: ./scripts/verify-dive-compat.sh "$DIVE_BIN"

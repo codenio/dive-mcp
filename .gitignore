@@ -1,0 +1,12 @@
+/bin/
+/dist/
+/.dive-bin/
+/.claude/
+*.test
+*.out
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+.DS_Store

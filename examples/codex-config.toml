@@ -1,0 +1,8 @@
+# Add this block to ~/.codex/config.toml
+
+[mcp_servers.dive-mcp]
+command = "dive-mcp"
+args = []
+
+[mcp_servers.dive-mcp.env]
+DIVE_MCP_TIMEOUT = "5m"

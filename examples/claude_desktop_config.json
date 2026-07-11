@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "dive-mcp": {
+      "command": "dive-mcp",
+      "args": [],
+      "env": {
+        "DIVE_MCP_DIVE_PATH": "/usr/local/bin/dive",
+        "DIVE_MCP_TIMEOUT": "5m"
+      }
+    }
+  }
+}

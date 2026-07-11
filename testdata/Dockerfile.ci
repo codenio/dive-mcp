@@ -1,0 +1,7 @@
+# Minimal image used by dive compatibility CI. Layers are intentionally simple
+# so the job stays fast; only JSON shape matters, not exact byte counts.
+FROM alpine:3.20
+RUN echo hello > /tmp/a.txt
+RUN echo world > /tmp/a.txt
+RUN dd if=/dev/zero of=/tmp/big.bin bs=1024 count=100 2>/dev/null
+RUN rm /tmp/big.bin

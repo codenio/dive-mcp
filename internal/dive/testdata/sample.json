@@ -1,0 +1,56 @@
+{
+  "layer": [
+    {
+      "index": 0,
+      "id": "blobs",
+      "digestId": "sha256:b2848c02ac6ff53d265469b5b30f649f335e546a83330cd8916d54e65e640409",
+      "sizeBytes": 8652792,
+      "command": "ADD alpine-minirootfs-3.24.1-aarch64.tar.gz / # buildkit"
+    },
+    {
+      "index": 1,
+      "id": "blobs",
+      "digestId": "sha256:bbdda5acbc21dee9dcb21809443cbbb0e03316cf7cd9223b218903df496fc159",
+      "sizeBytes": 6,
+      "command": "RUN /bin/sh -c echo hello > /tmp/a.txt # buildkit"
+    },
+    {
+      "index": 2,
+      "id": "blobs",
+      "digestId": "sha256:2b4d095d48cef44b1526594d93bbf15cd443a5725f1329beedc50624bb2d46f4",
+      "sizeBytes": 6,
+      "command": "RUN /bin/sh -c echo world > /tmp/a.txt # buildkit"
+    },
+    {
+      "index": 3,
+      "id": "blobs",
+      "digestId": "sha256:a909379bccf13dd2838414c8a66fd4c13a35e32d425fb9614fe58ce2e9a3ad8e",
+      "sizeBytes": 102400,
+      "command": "RUN /bin/sh -c dd if=/dev/zero of=/tmp/big.bin bs=1024 count=100 # buildkit"
+    },
+    {
+      "index": 4,
+      "id": "blobs",
+      "digestId": "sha256:01ba41a5a61a2e207da13a027da1a4d9b4b18317ab761bd69c8b647b72c5f897",
+      "sizeBytes": 0,
+      "command": "RUN /bin/sh -c rm /tmp/big.bin # buildkit"
+    }
+  ],
+  "image": {
+    "sizeBytes": 8755204,
+    "inefficientBytes": 102412,
+    "efficiencyScore": 0.988303413604069,
+    "fileReference": [
+      {
+        "count": 2,
+        "sizeBytes": 102400,
+        "file": "/tmp/big.bin"
+      },
+      {
+        "count": 2,
+        "sizeBytes": 12,
+        "file": "/tmp/a.txt"
+      }
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "dive-mcp": {
+      "command": "dive-mcp",
+      "args": [],
+      "env": {
+        "DIVE_MCP_TIMEOUT": "5m"
+      }
+    }
+  }
+}
