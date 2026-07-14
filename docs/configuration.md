@@ -13,8 +13,8 @@
 claude mcp add dive-mcp -- dive-mcp
 ```
 
-See [`examples/claude-code.sh`](../examples/claude-code.sh) for a version with explicit
-env vars.
+See [`examples/claude-code.sh`](https://github.com/codenio/dive-mcp/blob/main/examples/claude-code.sh)
+for a version with explicit env vars.
 
 ## Claude Desktop
 
@@ -31,7 +31,7 @@ Add to your `claude_desktop_config.json`:
 }
 ```
 
-See [`examples/claude_desktop_config.json`](../examples/claude_desktop_config.json).
+See [`examples/claude_desktop_config.json`](https://github.com/codenio/dive-mcp/blob/main/examples/claude_desktop_config.json).
 
 ## Cursor
 
@@ -48,7 +48,7 @@ Add to `.cursor/mcp.json`:
 }
 ```
 
-See [`examples/cursor-mcp.json`](../examples/cursor-mcp.json).
+See [`examples/cursor-mcp.json`](https://github.com/codenio/dive-mcp/blob/main/examples/cursor-mcp.json).
 
 ## Codex
 
@@ -60,4 +60,4 @@ command = "dive-mcp"
 args = []
 ```
 
-See [`examples/codex-config.toml`](../examples/codex-config.toml).
+See [`examples/codex-config.toml`](https://github.com/codenio/dive-mcp/blob/main/examples/codex-config.toml).

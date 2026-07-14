@@ -2,7 +2,7 @@
 
 Maintainers cut releases by pushing a semver tag (`v0.1.0`, `v0.2.0`, …).
 
-The [Release workflow](../.github/workflows/release.yml) cross-compiles darwin/linux
+The [Release workflow](https://github.com/codenio/dive-mcp/blob/main/.github/workflows/release.yml) cross-compiles darwin/linux
 amd64+arm64 binaries and attaches them to the GitHub release with SHA256 checksums.
 
 ```sh

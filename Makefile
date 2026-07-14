@@ -66,9 +66,25 @@ hooks-install:
 	pre-commit install
 	@echo "Installed pre-commit hooks from .pre-commit-config.yaml"
 
+.PHONY: docs
+docs:
+	@command -v mkdocs >/dev/null 2>&1 || { \
+		echo "mkdocs not found; install: pip install -r requirements-docs.txt"; \
+		exit 1; \
+	}
+	mkdocs serve
+
+.PHONY: docs-build
+docs-build:
+	@command -v mkdocs >/dev/null 2>&1 || { \
+		echo "mkdocs not found; install: pip install -r requirements-docs.txt"; \
+		exit 1; \
+	}
+	mkdocs build --strict
+
 .PHONY: clean
 clean:
-	rm -rf $(BIN_DIR) dist
+	rm -rf $(BIN_DIR) dist site
 
 .PHONY: release
 release:

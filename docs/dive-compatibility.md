@@ -17,11 +17,11 @@ separately and point `dive-mcp` at it via `PATH` or `DIVE_MCP_DIVE_PATH`.
 ## Maintaining compatibility
 
 1. **When upstream `dive` ships a new release**, add the version to the matrix in
-   [`.github/workflows/dive-compat.yml`](../.github/workflows/dive-compat.yml) and open a
+   [`.github/workflows/dive-compat.yml`](https://github.com/codenio/dive-mcp/blob/main/.github/workflows/dive-compat.yml) and open a
    PR. The weekly scheduled job will also catch drift if you forget.
 2. **If `dive` changes its JSON shape**, update
-   [`internal/dive/types.go`](../internal/dive/types.go) and refresh
-   [`internal/dive/testdata/sample.json`](../internal/dive/testdata/sample.json) from a
+   [`internal/dive/types.go`](https://github.com/codenio/dive-mcp/blob/main/internal/dive/types.go) and refresh
+   [`internal/dive/testdata/sample.json`](https://github.com/codenio/dive-mcp/blob/main/internal/dive/testdata/sample.json) from a
    real `dive <image> --json sample.json` run.
 3. **For older `dive` installs**, no special `dive-mcp` build is required — any
    `dive-mcp` release works as long as the installed `dive` produces parseable JSON.

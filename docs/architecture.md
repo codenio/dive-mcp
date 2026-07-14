@@ -31,7 +31,7 @@ The temp file is always removed after parsing, even on error.
 }
 ```
 
-Go types for this structure live in [`internal/dive/types.go`](../internal/dive/types.go).
+Go types for this structure live in [`internal/dive/types.go`](https://github.com/codenio/dive-mcp/blob/main/internal/dive/types.go).
 
 ## CI threshold logic
 
@@ -41,6 +41,6 @@ process exit code.
 
 ## Caching
 
-The [`Runner`](../internal/dive/dive.go) caches parsed analyses for the process lifetime,
+The [`Runner`](https://github.com/codenio/dive-mcp/blob/main/internal/dive/dive.go) caches parsed analyses for the process lifetime,
 keyed by `(image, source)`. Multiple tool calls against the same image in one MCP session
 invoke `dive` only once.

@@ -8,6 +8,7 @@
 [![Go Reference](https://pkg.go.dev/badge/github.com/codenio/dive-mcp/cmd/dive-mcp.svg)](https://pkg.go.dev/github.com/codenio/dive-mcp/cmd/dive-mcp)
 [![MCP](https://img.shields.io/badge/MCP-compatible-6366F1)](https://modelcontextprotocol.io)
 [![dive](https://img.shields.io/badge/dive-v0.12%2B-blue)](https://github.com/wagoodman/dive)
+[![Docs](https://img.shields.io/badge/docs-GitHub%20Pages-2ea44f)](https://codenio.github.io/dive-mcp/)
 
 MCP server for [`dive`](https://github.com/wagoodman/dive) — inspect container image
 layers, find wasted space, and run CI-style efficiency checks from AI coding assistants.
@@ -88,6 +89,8 @@ Build from source: `git clone` → `make build` — see [docs/development.md](do
 
 ## Documentation
 
+Full docs site: **[codenio.github.io/dive-mcp](https://codenio.github.io/dive-mcp/)**
+
 | Doc | Contents |
 |---|---|
 | [configuration.md](docs/configuration.md) | Client setup and environment variables |
@@ -96,6 +99,8 @@ Build from source: `git clone` → `make build` — see [docs/development.md](do
 | [architecture.md](docs/architecture.md) | How dive-mcp invokes and parses dive |
 | [dive-compatibility.md](docs/dive-compatibility.md) | Supported dive versions |
 | [releasing.md](docs/releasing.md) | Maintainer release workflow |
+
+Local preview: `pip install -r requirements-docs.txt && make docs`
 
 ## Contributing
 

@@ -1,0 +1,73 @@
+{
+  "eval_id": "blind-2026-07-11",
+  "image": "dive-mcp-eval:blind-1783749069",
+  "methodology": {
+    "agents": "Two isolated Cursor subagents, run sequentially",
+    "agent_a_tools": "Shell only (dive, jq) — dive-mcp MCP forbidden",
+    "agent_b_tools": "dive-mcp MCP only — Shell forbidden",
+    "pre_context": "None — fresh subagent per run, new image tag to bust dive-mcp cache",
+    "ground_truth": "dive <image> --json (host CLI)"
+  },
+  "ground_truth": {
+    "efficiency_score": 0.9885198452108419,
+    "inefficient_bytes": 102412,
+    "layer_count": 5,
+    "top_wasted_file": "/tmp/big.bin",
+    "top_wasted_bytes": 204800,
+    "ci_pass": true
+  },
+  "agent_a_shell_only": {
+    "agent_id": "a201c51a-7d4a-41b2-93b4-7204a8b0bc87",
+    "answers": {
+      "efficiency_score": 0.9885198452108419,
+      "inefficient_bytes": 102412,
+      "layer_count": 5,
+      "top_wasted_file": "/tmp/big.bin",
+      "top_wasted_bytes": 204800,
+      "ci_pass": true
+    },
+    "metrics": {
+      "wall_time_seconds": 3.86,
+      "tool_call_count": 6,
+      "tool_input_chars": 1025,
+      "tool_output_chars": 6200,
+      "approach": "Ran dive with --json and --ci flags, then parsed the exported JSON with jq to extract efficiency, waste, layer count, and top duplicated file."
+    },
+    "accuracy": "6/6"
+  },
+  "agent_b_dive_mcp": {
+    "agent_id": "a1356f23-c87b-4977-8f1f-7d87c5f19a79",
+    "answers": {
+      "efficiency_score": 0.9885198452108419,
+      "inefficient_bytes": 102412,
+      "layer_count": 5,
+      "top_wasted_file": "/tmp/big.bin",
+      "top_wasted_bytes": 204800,
+      "ci_pass": true
+    },
+    "metrics": {
+      "wall_time_seconds": 4.1,
+      "tool_call_count": 4,
+      "tool_input_chars": 232,
+      "tool_output_chars": 4538,
+      "approach": "Discovered tool schemas, then ran analyze_image, get_wasted_space, and ci_check in parallel against the image."
+    },
+    "accuracy": "6/6"
+  },
+  "comparison": {
+    "wall_time_delta_seconds": 0.24,
+    "tool_call_count_delta": -2,
+    "tool_io_chars_agent_a": 7225,
+    "tool_io_chars_agent_b": 4770,
+    "tool_io_reduction_percent": 34.0,
+    "estimated_tool_tokens_agent_a": 1806,
+    "estimated_tool_tokens_agent_b": 1193
+  },
+  "limitations": [
+    "Tool I/O char counts are self-reported by agents, not Cursor API token meters",
+    "System prompt and reasoning tokens not captured — only tool payload proxy",
+    "Constraint compliance (no cross-tool use) is instruction-based, not enforced by sandbox",
+    "Single image, single run each — no variance band",
+    "dive-mcp MCP server process was already running; image key was new so dive analysis was cold"
+  ]
+}

@@ -10,3 +10,5 @@
 *.so
 *.dylib
 .DS_Store
+/site/
+/.venv-docs/

@@ -18,13 +18,15 @@ make lint           # golangci-lint, or go vet as fallback
 make fmt            # gofmt + go fmt
 make pre-commit     # run all pre-commit hooks
 make hooks-install  # install pre-commit git hooks for this clone
-make clean          # remove bin/ and dist/
+make clean          # remove bin/, dist/, and site/
+make docs           # serve docs locally (requires MkDocs)
+make docs-build     # build static site to ./site
 make release        # cross-compile darwin/linux amd64+arm64 into ./dist
 ```
 
 ## Pre-commit hooks
 
-Hook definitions live in [`.pre-commit-config.yaml`](../.pre-commit-config.yaml). Install
+Hook definitions live in [`.pre-commit-config.yaml`](https://github.com/codenio/dive-mcp/blob/main/.pre-commit-config.yaml). Install
 once per clone:
 
 ```sh
