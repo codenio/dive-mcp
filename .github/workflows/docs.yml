@@ -1,4 +1,5 @@
 name: Docs
+run-name: ${{ github.event_name == 'pull_request' && format('Docs · PR {0}', github.event.pull_request.number) || (github.event_name == 'workflow_dispatch' && 'Docs · manual' || format('Docs · {0}', github.ref_name)) }}
 
 on:
   push:

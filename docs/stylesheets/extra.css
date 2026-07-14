@@ -146,6 +146,13 @@
   text-shadow: none;
 }
 
+.md-typeset .dm-badge .twemoji,
+.md-typeset .dm-badge svg {
+  width: 0.95em;
+  height: 0.95em;
+  fill: currentcolor;
+}
+
 .md-typeset .dm-badge:hover {
   background: rgb(15 23 42 / 58%);
   border-color: rgb(255 255 255 / 42%);

@@ -1,4 +1,5 @@
 name: Dive compatibility
+run-name: ${{ inputs.dive_version && format('Dive compatibility · dive {0}', inputs.dive_version) || (github.event_name == 'schedule' && 'Dive compatibility · weekly' || (github.event_name == 'pull_request' && format('Dive compatibility · PR {0}', github.event.pull_request.number) || format('Dive compatibility · {0}', github.ref_name))) }}
 
 on:
   push:
